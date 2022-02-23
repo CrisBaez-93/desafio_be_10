@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <h1 class="text-primary">Historial</h1>
+  <% if(products.length > 0) { %>
+    <table class="table table-dark">
+      <thead>
+        <tr class="text-warning">
+          <th class="font-weight-bold">Nombre</th>
+          <th class="font-weight-bold">Precio</th>
+          <th class="font-weight-bold">Foto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(notFound) { %>
+          <tr class="text-warning">
+            <td>No se encontró este producto.</td>
+          </tr>
+        <% } %>
+          <% search.forEach(producto => { %>
+            <tr>
+              <td>{{this.nombre}}</td>
+              <td>${{this.precio}}</td>
+              <td>
+                <picture>
+                  <img src={{this.foto}} alt={{this.nombre}}>
+                </picture>
+              </td>
+            </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h3 class="alert alert-danger">No hay productos</h3>
+    <p>Agregar un producto </p><a href="/", class="text-danger">Aquí</a>
+  <% } %>
+</div>
